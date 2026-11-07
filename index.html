@@ -3,22 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IA UMB — Un Monde Bouge</title>
+<meta name="theme-color" content="#070707">
+<title>UMB IA — Moteur Citoyen</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main class="app">
-<header><div class="logo">UMB <span>IA</span></div><div class="status">● EN LIGNE</div></header>
-<section class="hero"><h1>IA UMB</h1><p>Une intelligence citoyenne conçue pour comprendre le contexte, raisonner et répondre utilement.</p></section>
-<section id="chat" class="chat" aria-live="polite">
-<div class="msg ai"><b>IA UMB</b><p>Bonjour. Pose-moi ta question.</p></div>
+<div class="app">
+<header class="topbar">
+  <a class="brand" href="." aria-label="IA UMB"><strong>UMB</strong><span>IA</span></a>
+  <div class="engine"><span id="dot"></span><span id="status">Chargement du moteur…</span></div>
+</header>
+
+<section class="welcome" id="welcome">
+  <div class="badge">UN MONDE BOUGE · MOTEUR CITOYEN</div>
+  <h1>Une IA qui <em>comprend</em><br>avant de répondre.</h1>
+  <p>Pose ta question, donne ton contexte ou demande une analyse. Le moteur fonctionne directement dans ton navigateur, sans clé API.</p>
+  <div class="chips">
+    <button data-q="Analyse cette idée et propose-moi un plan concret.">Analyser une idée</button>
+    <button data-q="Explique-moi ce sujet simplement puis en détail.">M'expliquer un sujet</button>
+    <button data-q="Aide-moi à construire une stratégie étape par étape.">Construire une stratégie</button>
+  </div>
 </section>
-<form id="form" class="inputbar">
-<textarea id="message" rows="1" placeholder="Écris ta question..." required></textarea>
-<button>Envoyer</button>
+
+<main class="chat" id="chat" hidden></main>
+
+<form class="composer" id="form">
+  <textarea id="message" rows="1" placeholder="Écris ta question à l’IA UMB…" autocomplete="off"></textarea>
+  <button id="send" type="submit" aria-label="Envoyer">➤</button>
 </form>
-<p class="note">Interface UMB — la connexion au moteur IA se fait via le serveur UMB. Aucune clé secrète n’est stockée dans cette page.</p>
-</main>
-<script src="app.js"></script>
+<div class="tools">
+  <button id="clear" type="button">Nouvelle conversation</button>
+  <span>IA locale · aucune clé API dans le site</span>
+</div>
+</div>
+<script type="module" src="app.js"></script>
 </body>
 </html>
