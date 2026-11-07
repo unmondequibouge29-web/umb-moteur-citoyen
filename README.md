@@ -1,21 +1,25 @@
-# UMB Moteur Citoyen
+# UMB — Moteur Citoyen
 
-Interface officielle de l'IA UMB.
+IA UMB réellement exécutée dans le navigateur avec WebLLM/WebGPU.
 
-## Architecture
+## Avantage
+- Gratuit côté serveur : aucun serveur IA obligatoire.
+- Aucune clé API.
+- Compatible avec GitHub Pages.
+- Le modèle est téléchargé puis exécuté localement dans le navigateur.
+- Les conversations ne sont pas envoyées à une API IA externe par cette application.
 
-Frontend statique : GitHub Pages.
-Moteur IA : endpoint serveur `POST /api/ia`.
+## Modèle
+Qwen2.5 0.5B Instruct quantifié pour WebLLM. Un modèle plus puissant pourra être ajouté plus tard si le matériel des utilisateurs le permet.
 
-Le navigateur ne contient aucune clé secrète. Le serveur doit appeler le modèle IA et renvoyer :
+## Déploiement GitHub Pages
+Le workflow `.github/workflows/pages.yml` publie automatiquement le dépôt sur GitHub Pages.
 
-```json
-{"reply":"..."}
-```
-
-## Déploiement
-
-Le frontend peut être publié avec GitHub Pages. L'URL sera :
+URL attendue :
 https://unmondequibouge29-web.github.io/umb-moteur-citoyen/
 
-Pour une IA réellement intelligente, il faut connecter `/api/ia` à un modèle (local ou fournisseur d'API).
+## Important
+La première ouverture télécharge le modèle. La vitesse et la qualité dépendent du navigateur et du matériel de l'utilisateur. WebGPU est recommandé.
+
+## Évolution UMB
+L'architecture permet ensuite d'ajouter des profils Visiteur / Premium / Admin et, si nécessaire, un backend avec un modèle plus puissant.
